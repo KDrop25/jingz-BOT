@@ -8,18 +8,21 @@ class modcmd(commands.Cog):
     
 #for commands
     @commands.command()
+    @commands.has_role('Admin')
     async def kick(self ,ctx, member : discord.Member, *,reason = None):
         await member.kick(reason = reason)
         await ctx.channel.purge(limit=1)
         await ctx.send(f'**"{member}"** has been kicked due to **Reason:** {reason}')
 
     @commands.command()
+    @commands.has_role('Admin')
     async def ban(self,ctx, member : discord.Member, *,reason = None):
         await member.ban(reason = reason)
         await ctx.channel.purge(limit=1)
         await ctx.send(f'**"{member}"** has been banned due to **Reason:** {reason}')
 
     @commands.command()
+    @commands.has_role('Admin')
     async def unban(self,ctx, *, member):
         banned_users = await ctx.guild.bans()
         member_name , member_discriminator = member.split('#')
@@ -34,6 +37,8 @@ class modcmd(commands.Cog):
                 return
 
     @commands.command()
+    @commands.has_role('Admin')
+
     async def clear(self,ctx, amount=0,):
         if amount <= 0:
             await ctx.send('please enter the number of messages to delete after the ".clear" command')

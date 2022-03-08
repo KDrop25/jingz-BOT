@@ -11,6 +11,17 @@ intents = discord.Intents().all()
 
 client = commands.Bot(command_prefix = '.',intents = intents)
 
+
+
+@client.event
+async def on_command_error(ctx,error):
+    if isinstance(error,commands.CommandNotFound):
+        await ctx.send('Error:No Such Command Available!')
+
+
+
+
+
 @client.command()
 async def load(ctx, extension):
     client.load_extension(f'cogs.{extension}')
