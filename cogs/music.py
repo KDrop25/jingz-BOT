@@ -104,7 +104,9 @@ class music(commands.Cog):
             guild = ctx.guild 
             channel = await guild.create_text_channel('jingz music')             
             channelid = self.client.get_channel(channel.id)        
-            await channelid.send(embed= discord.Embed(title='**Jingz Music**',url = 'https://discord.com/oauth2/authorize?client_id=949708809318826034&scope=bot&permissions=3157046',description = 'Jingz Music Player') )
+            embed= discord.Embed(title='**Jingz Music**',url = 'https://discord.com/oauth2/authorize?client_id=949708809318826034&scope=bot&permissions=3157046',description = 'Jingz Music Player')
+            embed.set_image(url = 'https://github.com/KDrop25/jingz-BOT/blob/main/Jingz%20music%20image.jpg?raw=true')
+            await channelid.send(embed=embed)
             
         
         
