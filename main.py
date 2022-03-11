@@ -57,4 +57,4 @@ for filename in os.listdir('cogs'):
 
 
 #keep_alive()
-client.run('OTUwNjc1NzE1NzMxMzg2Mzg4.YicXwQ.wiXiD2UexsUkOXaW6JLLdPpCo8o')
+client.run('OTQ5NzA4ODA5MzE4ODI2MDM0.YiOTQA.tWrb3gJWvEoY-fMlkvpXrrd67-A')

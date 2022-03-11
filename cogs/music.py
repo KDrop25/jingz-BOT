@@ -96,10 +96,15 @@ class music(commands.Cog):
 
 
 
-    @commands.command()
-    async def setup(self,ctx):
-	    guild = ctx.guild
-	    channel = await guild.create_text_channel('Jingz Music')
+    @commands.command(name ='setup')
+    async def setup(self,ctx, *,given_name=None):
+        
+        guild = ctx.guild
+        channel = await guild.create_text_channel('jingz music')        
+        await ctx.channel.send(embed= discord.Embed(title='**Jingz Music**',url = 'https://discord.com/oauth2/authorize?client_id=949708809318826034&scope=bot&permissions=3157046',description = 'Jingz Music Player') )
+            
+
+        
     
     
 
@@ -109,7 +114,7 @@ class music(commands.Cog):
 
     
     
-    @commands.command(name="**Play:**", aliases=["p","playing",], help="Plays a selected song from youtube")
+    @commands.command(name="play", aliases=["p","playing",], help="Plays a selected song from youtube")
     async def play(self, ctx, *args):
         query = " ".join(args)
         
@@ -131,7 +136,7 @@ class music(commands.Cog):
                     await ctx.send('Song Playing') 
                 else:
                     await ctx.send("Song added to the queue 🧾")
-                    self.music_queue.append([song,voice_channel]) 
+                     
 
 
     
@@ -149,7 +154,7 @@ class music(commands.Cog):
 
 
 
-    @commands.command(name="**Pause:**", help="Pauses the current song being played")
+    @commands.command(name="pause", help="Pauses the current song being played")
     async def pause(self, ctx, *args):
         await ctx.send("Song Paused ⏸️")
         if self.is_playing:
@@ -167,7 +172,7 @@ class music(commands.Cog):
 
 
 
-    @commands.command(name = "**Resume:**", aliases=["r"], help="Resumes playing with the discord bot")
+    @commands.command(name = "resume", aliases=["r"], help="Resumes playing with the discord bot")
     async def resume(self, ctx, *args):
         await ctx.send("Song Resumed ▶️")
         if self.is_paused:
@@ -182,7 +187,7 @@ class music(commands.Cog):
 
 
 
-    @commands.command(name="**Skip:**", aliases=["s","next","n"], help="Skips the current song being played")
+    @commands.command(name="skip", aliases=["s","next","n"], help="Skips the current song being played")
     async def skip(self, ctx):
         await ctx.send("Song Skipped ⏭️")
         if self.vc != None and self.vc:
@@ -197,7 +202,7 @@ class music(commands.Cog):
 
 
 
-    @commands.command(name="**Queue:**", aliases=["q","list"], help="Displays the current songs in queue")
+    @commands.command(name="queue", aliases=["q","list"], help="Displays the current songs in queue")
     async def queue(self, ctx):
         retval = ""
         for i in range(0, len(self.music_queue)):
@@ -220,7 +225,7 @@ class music(commands.Cog):
 
 
 
-    @commands.command(name = "**Stop:**",aliases=["c", "bin"], help="Stops the music and clears the queue")
+    @commands.command(name = "stop",aliases=["c", "bin"], help="Stops the music and clears the queue")
     async def stop(self, ctx):
         if self.vc != None and self.is_playing:
             self.vc.stop()
@@ -239,7 +244,7 @@ class music(commands.Cog):
 
 
 
-    @commands.command(name="**DVc:**", aliases=["disconnect", "l", "d",], help="Kick the bot from VC")
+    @commands.command(name="dvc", aliases=["disconnect", "l", "d",], help="Kick the bot from VC")
     async def dvc(self, ctx):
         self.is_playing = False
         self.is_paused = False
