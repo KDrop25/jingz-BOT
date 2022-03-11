@@ -1,3 +1,4 @@
+from tokenize import Token
 import discord
 from discord.ext import commands
 import random
@@ -57,4 +58,4 @@ for filename in os.listdir('cogs'):
 
 
 #keep_alive()
-client.run('OTQ5NzA4ODA5MzE4ODI2MDM0.YiOTQA.tWrb3gJWvEoY-fMlkvpXrrd67-A')
+client.run(os.getenv('TOKEN'))

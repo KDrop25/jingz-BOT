@@ -1,6 +1,4 @@
-from ast import alias
-from http import client
-from unicodedata import name
+
 import discord
 from discord.ext import commands
 
@@ -96,12 +94,35 @@ class music(commands.Cog):
 
 
 
-    @commands.command(name ='setup')
-    async def setup(self,ctx, *,given_name=None):
+    @commands.command(name ='setup',help="command to setup the bot's music channel")
+    async def setup(self,ctx):
+        #await ctx.send('the Bot is already setted up')
+        if any("jingz-music" in channel.name for channel in ctx.guild.channels):
+            await ctx.send('the Bot is already setted up')
+        else:
+            
+            guild = ctx.guild 
+            channel = await guild.create_text_channel('jingz music')             
+            channelid = self.client.get_channel(channel.id)        
+            await channelid.send(embed= discord.Embed(title='**Jingz Music**',url = 'https://discord.com/oauth2/authorize?client_id=949708809318826034&scope=bot&permissions=3157046',description = 'Jingz Music Player') )
+            
         
-        guild = ctx.guild
-        channel = await guild.create_text_channel('jingz music')        
-        await ctx.channel.send(embed= discord.Embed(title='**Jingz Music**',url = 'https://discord.com/oauth2/authorize?client_id=949708809318826034&scope=bot&permissions=3157046',description = 'Jingz Music Player') )
+        
+            
+    
+            
+                
+
+
+
+
+        
+        
+                              
+
+        
+            
+        
             
 
         
