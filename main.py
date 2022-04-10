@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 import random
 import os
+
 #from keep_alive import keep_alive
 
 intents = discord.Intents().all()
@@ -58,4 +59,4 @@ for filename in os.listdir('D:\Work\Coding\Python\Python Projects\Discord BOT Pr
 
 
 #keep_alive()
-client.run('OTUwNjc1NzE1NzMxMzg2Mzg4.YicXwQ.bMNU-oxDRMngpVqm0cdNURPxYm4')
+client.run(os.getenv("TOKEN"))
