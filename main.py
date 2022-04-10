@@ -1,4 +1,4 @@
-from tokenize import Token
+
 import discord
 from discord.ext import commands
 import random
@@ -49,7 +49,7 @@ async def reload(ctx, extension):
 
 
 
-for filename in os.listdir('cogs'):
+for filename in os.listdir('D:\Work\Coding\Python\Python Projects\Discord BOT Projects\Discord Bot(python) (jingz BOT)\jingz-BOT\cogs'):
     if filename.endswith('.py'):
         client.load_extension(f'cogs.{filename[:-3]}')
     
@@ -58,4 +58,4 @@ for filename in os.listdir('cogs'):
 
 
 #keep_alive()
-client.run(os.getenv('TOKEN'))
+client.run('OTUwNjc1NzE1NzMxMzg2Mzg4.YicXwQ.bMNU-oxDRMngpVqm0cdNURPxYm4')
