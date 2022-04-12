@@ -27,7 +27,7 @@ class BotInfo(commands.Cog):
         await ctx.send("**About:** this bot is made by **KDrop**")
 
 #tasks
-    @tasks.loop(seconds=2)
+    @tasks.loop(seconds=10)
     async def change_status(self):
         await self.client.change_presence(activity = discord.Activity(type=discord.ActivityType.listening, name=(next(status1))))
         await self.client.change_presence(activity = discord.Activity(type=discord.ActivityType.playing, name=(next(status2))))
